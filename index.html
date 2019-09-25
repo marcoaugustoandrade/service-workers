@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Workers</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/favicon/icon-512x512.png">
+</head>
+<body>
+  
+  <main>
+    <h1>Trabalhando com Service Workers</h1>
+    <img src="assets/images/service-workers.jpg" alt="Anatomia do Service Workers" width="600">
+  </main>
+
+  <script>
+    
+    // Registrando o Service Workers
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('/sw.js')
+            .then((registration) => console.log('ServiceWorker registrado em ', registration.scope))
+            .catch((err) =>  console.log('Falha ao registrar o ServiceWorker: ', err))
+      })
+    }
+  </script>
+</body>
+</html>
